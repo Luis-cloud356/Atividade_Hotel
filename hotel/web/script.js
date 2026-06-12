@@ -25,6 +25,7 @@ function listarCards(){
 
         card.innerHTML = `
         <h3>${quarto.numero}</h3>
+        <h3>${quarto.tipo}</h3>
         
         `;
         card.onclick = () => abrirQuarto(quarto);
@@ -37,7 +38,7 @@ function abrirQuarto(quarto){
     quartoAtual = quarto;
     tituloQuarto.innerText = quarto.nome;
     numeroEdit.value = quarto.numero;
-    suitesEdit.value = quarto.suites;
+    tipoEdit.value = quarto.tipo;
     detalhes.classList.remove('oculto');
 }
 
@@ -45,7 +46,7 @@ document.querySelector('#formCad'). addEventListener('submit', function(e){
     e.preventDefault();
     const novoQuarto = {
         numero: numero.value,
-        tipo: suites.value,
+        tipo: tipo.value,
         
     };
 
@@ -69,7 +70,7 @@ document.querySelector('#formCad'). addEventListener('submit', function(e){
 function salvarQuarto(){
     const quartoEditado = {
         numero: numeroEdit.value,
-        tipo: suitesEdit.value,
+        tipo: tipoEdit.value,
     };
 
     fetch(url + '/atualizar/' + quartoAtual.id,{

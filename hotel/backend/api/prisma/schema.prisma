@@ -22,8 +22,8 @@ model Quartos {
 model Reservas {
   id           Int      @id @default(autoincrement())
   hospede      String
-  data_entrada DateTime
-  data_saida   DateTime
+  data_entrada String
+  data_saida   String
   quarto_id    Int
   quartos      Quartos @relation(fields: [quarto_id], references: [id])
 }

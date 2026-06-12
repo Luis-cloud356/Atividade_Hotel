@@ -19,12 +19,17 @@ function listarCards(){
     const container = document.querySelector('main');
     container.innerHTML = '';
 
-    quartos.forEach(reserva =>{
+    reservas.forEach(reserva =>{
         const card = document.createElement('div');
         card.classList.add('card');
 
         card.innerHTML = `
-        <h3>${reserva.nome}</h3>
+        <h3>${reserva.hospede}</h3>
+        <h3>${reserva.data_entrada}</h3>
+        <h3>${reserva.data_saida}</h3>
+        <h3>${reserva.quarto_id}</h3>
+        
+        
         
         `;
         card.onclick = () => abrirReserva(reserva);
@@ -36,17 +41,19 @@ function listarCards(){
 function abrirReserva(reserva){
     reservaAtual = reserva;
     tituloReserva.innerText = reserva.nome;
-    nomEdit.value = reserva.nome;
-    dataEdit.value = reserva.data;
+    nomeEdit.value = reserva.hopede;
+    dataEdit.value = reserva.data_entrada;
+    data_saidaEdit.value = reserva.data_saida;
     detalhes.classList.remove('oculto');
 }
 
 document.querySelector('#formCad'). addEventListener('submit', function(e){
     e.preventDefault();
     const novaReserva = {
-        nome: nome.value,
-        data: data_entrada.value,
+        hospede: hospede.value,
+        data_entrada: data_entrada.value,
         data_saida: data_saida.value,
+        quarto_id: quarto_idEdit.value
         
     };
 
@@ -69,9 +76,10 @@ document.querySelector('#formCad'). addEventListener('submit', function(e){
 
 function salvarReserva(){
     const reservaEditada = {
-        nome: nomeEdit.value,
+        hospede: hospedeEdit.value,
         data: dataEdit.value,
         data_saida: data_saidaEdit.value,
+        quarto_id: quarto_idEdit.value
     };
 
     fetch(url + '/atualizar/' + reservaAtual.id,{
