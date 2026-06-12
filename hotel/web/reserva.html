@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyline Gardens Hotel</title>
+
+<link rel="stylesheet" href="style.reserva.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>Skyline Gardens Hotel</h1>
+
+<button onclick="cadastro.classList.remove('oculto')">
+Adicionar Reservas
+</button>
+
+</header>
+
+
+<main></main>
+
+
+
+<div id="cadastro" class="modal oculto">
+
+<div class="janela">
+
+<h2>Adicionar Reserva</h2>
+
+<form id="formCad">
+
+<label>Nome do Hospede</label>
+<input type="text" id="nome" required>
+
+
+<label>Data de Entrada</label>
+<input type="date" id="data" required>
+
+<label>Data de Saída</label>
+<input type="date" id="data_saida" required>
+
+<label>Número do quarto</label>
+<input type="number" id="numero_quarto" required>
+
+<br><br>
+
+<button type="reset" onclick="cadastro.classList.add('oculto')">
+Cancelar
+</button>
+
+<button type="submit">
+Salvar
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="detalhes" class="modal oculto">
+
+<div class="janela">
+
+<h2 id="tituloReserva"></h2>
+
+
+<p><b>Nome do Hospede</b></p>
+<input type="text" id="nomeEdit">
+<p><b>Data de Entrada</b></p>
+<input type="date" id="dataEdit">
+<p><b>Data de Saída</b></p>
+<input type="date" id="data_saidaEdit">
+<p><b>Quarto numero</b></p>
+<input type="number" id="idEdit">
+
+<br><br>
+
+<button onclick="salvarReserva()">Salvar</button>
+
+<button onclick="excluirReservaAtual()">Excluir</button>
+
+<button onclick="detalhes.classList.add('oculto')">
+Fechar
+</button>
+
+</div>
+
+</div>
+
+
+<script src="script.reserva.js"></script>
+
+</body>
+</html>
+

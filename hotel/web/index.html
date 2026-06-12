@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyline Gardens Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>Skyline Gardens Hotel</h1>
+
+<button onclick="cadastro.classList.remove('oculto')">
+Adicionar Quarto
+</button>
+<div class="button-reserva">
+    <button><a href="reserva.html">Ir Para Reserva</a></button>
+</div>
+
+</header>
+
+
+<main></main>
+
+
+
+<div id="cadastro" class="modal oculto">
+
+<div class="janela">
+
+<h2>Adicionar Quarto</h2>
+
+<form id="formCad">
+
+<label>Número do Quarto</label>
+<input type="text" id="numero" required>
+
+
+<label>Suítes</label>
+<select id="suites">
+    <option value="SUITE_VIP">Suíte VIP</option>
+    <option value="SUITE_MASTER">Suíte Master</option>
+    <option value="SUITE_LUXO">Suíte Luxo</option>
+    <option value="SUITE_CASAL">Suíte Casal</option>
+</select>
+
+<br><br>
+
+<button type="reset" onclick="cadastro.classList.add('oculto')">
+Cancelar
+</button>
+
+<button type="submit">
+Salvar
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="detalhes" class="modal oculto">
+
+<div class="janela">
+
+<h2 id="tituloQuarto"></h2>
+
+
+<p><b>Número Quarto</b></p>
+<input type="text" id="numeroEdit">
+<p><b>Suítes</b></p>
+<select id="suitesEdit">
+<option value="SUITE_VIP">Suíte VIP</option>
+<option value="SUITE_MASTER">Suíte Master</option>
+<option value="SUITE_LUXO">Suíte Luxo</option>
+<option value="SUITE_CASAL">Suíte Casal</option>
+</select>
+
+<br><br>
+
+<button onclick="salvarQuarto()">Salvar</button>
+
+<button onclick="excluirQuartoAtual()">Excluir</button>
+
+<button onclick="detalhes.classList.add('oculto')">
+Fechar
+</button>
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
